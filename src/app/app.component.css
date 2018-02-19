@@ -1,5 +1,5 @@
 .fixed-aside__header {
-  background-color: cornflowerblue;
+  background-color: #99f;
 
   position: absolute;
   top: 0;
@@ -9,7 +9,8 @@
 }
 
 .fixed-aside__toolbar {
-  background-color: aliceblue;
+  background-color: #ccf;
+  border-right: 1px solid #99f;
 
   position: absolute;
   top: 50px;
@@ -19,7 +20,7 @@
 }
 
 .fixed-footer {
-  background-color: aquamarine;
+  background-color: #ccf;
 
   position: absolute;
   bottom: 0;
@@ -29,7 +30,7 @@
 }
 
 .main-content {
-  background-color: beige;
+  background-color: #ddd;
 
   position: absolute;
   top: 100px;
