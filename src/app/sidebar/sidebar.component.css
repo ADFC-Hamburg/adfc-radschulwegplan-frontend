@@ -1,5 +1,16 @@
 .toolbar__action {
-  color: #666;
+  margin: 10px 3px;
+  padding: 5px 10px;
+  border: 1px solid #004b7c;
+  border-radius: 3px;
+
+  color: #004b7c;
+  transition: color, border-color, 300ms ease;
+}
+
+.toolbar__action:hover {
+  color: #ee7400;
+  border-color: #ee7400;
 }
 
 .toolbar__action-badge {
@@ -7,7 +18,3 @@
   margin-left: 11px;
 }
 
-.toolbar__action {
-  padding: 5px 10px;
-  border-bottom: 1px solid #666;
-}
