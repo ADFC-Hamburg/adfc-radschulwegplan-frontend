@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-main-map',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMapComponent implements OnInit {
 
-  constructor() { }
+  apiKey = environment.openCycleMapApiKey;
+
+  constructor() {}
 
   ngOnInit() {
   }

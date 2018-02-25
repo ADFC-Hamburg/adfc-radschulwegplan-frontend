@@ -4,5 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  openCycleMapApiKey: '2a4cd8fc62b14047a159c78f55c2d152'
 };
