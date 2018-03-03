@@ -17,6 +17,17 @@
 
       >
     </yaga-tile-layer>
+    <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
+       <yaga-marker *ngFor="let point of danger_points" [lat]="point.lat" [lng]="point.lon" [draggable]="true">
+         <yaga-popup>
+           <h3>{{ point.title }}</h3>
+           <div>{{ point.description }}</div>
+           <div>{{ point.lon}}</div>
+         </yaga-popup>
+         <yaga-icon iconUrl="http://leafletjs.com/examples/custom-icons/leaf-green.png">
+           </yaga-icon>
+       </yaga-marker>
+    </yaga-layer-group>
   </yaga-layers-control>
   <yaga-attribution-control>
   </yaga-attribution-control>
