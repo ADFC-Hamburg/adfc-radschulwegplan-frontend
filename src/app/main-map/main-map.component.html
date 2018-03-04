@@ -18,11 +18,25 @@
       >
     </yaga-tile-layer>
     <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
-       <yaga-marker *ngFor="let point of danger_points" [lat]="point.lat" [lng]="point.lon" [draggable]="true">
+       <yaga-marker *ngFor="let point of danger_points" ngInit="editable=false;" [(lat)]="point.lat" [(lng)]="point.lon" [(draggable)]="editable">
          <yaga-popup>
-           <h3>{{ point.title }}</h3>
-           <div>{{ point.description }}</div>
-           <div>{{ point.lon}}</div>
+           Bearbeiten: <input type="checkbox" [(ngModel)]="editable"/>
+           <span *ngIf="!editable">
+             <h3>{{ point.title }}</h3>
+             <div>{{ point.description }}</div>
+
+             <button ngClick="editable=true">Btn1</button>
+             <button ngClick="point.title='hallo'">Btn2</button>
+             <button ngClick="alert('hallo')">Btn3</button>
+           </span>
+
+           <span *ngIf="editable">
+             <div>Zum anpassen der Position, einfach den Punkt verschieben</div>
+             <div>Titel: <input type="text" [(ngModel)]="point.title" width="80"/></div>
+             <div>Beschreibung <textarea [(ngModel)]="point.description" >
+             </textarea></div>
+             <button ngClick="editable=false">OK</button>
+           </span>
          </yaga-popup>
          <yaga-icon iconUrl="http://leafletjs.com/examples/custom-icons/leaf-green.png">
            </yaga-icon>
