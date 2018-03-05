@@ -1,7 +1,7 @@
 <yaga-map
-  [(lat)]="lat"
-  [(lng)]="lon"
-  [(zoom)]="zoom"
+  [(lat)]="posService.lat"
+  [(lng)]="posService.lon"
+  [(zoom)]="posService.zoom"
   >
   <yaga-layers-control>
     <yaga-tile-layer
@@ -19,7 +19,7 @@
     </yaga-tile-layer>
 
     <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
-       <yaga-marker *ngFor="let lpoint of dangerPointService.danger_points |async" ngInit="let point=initPoint(lpoint)" [(lat)]="point.lat" [(lng)]="point.lon" [(draggable)]="point.editable">
+       <yaga-marker *ngFor="let point of dangerPointService.danger_points |async" ngInit="point.editable=false" [(lat)]="point.lat" [(lng)]="point.lon" [(draggable)]="point.editable">
          <yaga-popup>
            <span *ngIf="!point.editable">
              <h3>{{ point.title }}</h3>

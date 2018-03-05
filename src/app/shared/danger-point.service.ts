@@ -3,6 +3,7 @@ import { DangerPoint } from '../shared/danger-point';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from "rxjs/Rx"
 import {List} from 'immutable';
+import { MapPositionService } from '../main-map/map-position.service';
 
 @Injectable()
 export class DangerPointService implements OnInit {
@@ -12,7 +13,7 @@ export class DangerPointService implements OnInit {
 
   public readonly danger_points: Observable<List<DangerPoint>> = this._danger_points.asObservable();
 
-  constructor() {
+    constructor(private mapPos:MapPositionService) {
         this.addPoint(new DangerPoint(
         53.5,10,'Bordstein zu hoch', 'hier sollte der Bordstein abgesenkt werden, weil sonst die Rollstuhlfahrer aus dem Behindertenheim über den Radweg fahren',42));
       this.addPoint(new DangerPoint(
@@ -36,7 +37,7 @@ export class DangerPointService implements OnInit {
   newPoint() {
      this.addPoint(
           new DangerPoint(
-                  53.52,10.05,'', '',0
+              this.mapPos.lat, this.mapPos.lon,'', '',0
               )
           )
   }
