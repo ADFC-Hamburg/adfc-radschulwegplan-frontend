@@ -8,6 +8,7 @@ import { MainMapComponent } from './main-map/main-map.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { DangerPointService } from './shared/danger-point.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     YagaModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DangerPointService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
