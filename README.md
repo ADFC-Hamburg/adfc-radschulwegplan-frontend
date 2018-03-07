@@ -1,4 +1,5 @@
-# AdfcRadschulwegeFrontend
+
+# AdfcRadschulwegeFrontend [![Build Status](https://travis-ci.org/ADFC-Hamburg/adfc-radschulwegplan-frontend.svg?branch=master)](https://travis-ci.org/ADFC-Hamburg/adfc-radschulwegplan-frontend)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
