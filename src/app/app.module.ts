@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MainMapComponent } from './main-map/main-map.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { LeafletPmtoolbarDirective } from './leaflet-pmtoolbar.directive';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     MainMapComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    LeafletPmtoolbarDirective
   ],
   imports: [
     BrowserModule,
