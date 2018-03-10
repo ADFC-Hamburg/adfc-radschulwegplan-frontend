@@ -3,7 +3,7 @@ import { MapProvider } from '@yaga/leaflet-ng2';
 
 //import { Map } from 'leaflet';
 import * as L from 'leaflet';
-import 'leaflet.pm';
+import 'leaflet.pm/js/L.PM';
 
 
 @Directive({
@@ -40,12 +40,15 @@ export class LeafletPmtoolbarDirective  {
             popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
         pm.enableDraw('Marker', {
-            snappable: false
+            snappable: false,
             opacity: 0.5,
             draggable: true,
             markerStyle: {
                 icon: greenIcon
             }
+        });
+        mapProvider.ref.on('pm:create', function () {
+            console.log('CREATE', arguments);
         });
 /*        mapProvider.ref = this;
         this.addTo(parentMapProvider.ref);
