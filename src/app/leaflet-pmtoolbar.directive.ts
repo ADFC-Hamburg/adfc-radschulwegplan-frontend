@@ -54,7 +54,7 @@ export class LeafletPmtoolbarDirective  {
         pm.disableDraw();
         mapProvider.ref.on('pm:marker:create', function (e:any) {
             console.log('CREATE',e, arguments);
-            
+            pm.disableDraw();
             dangerPointService.newPointWithPos(e.lat, e.lng);
         });
 /*        mapProvider.ref = this;

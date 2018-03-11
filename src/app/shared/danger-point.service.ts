@@ -15,9 +15,9 @@ export class DangerPointService implements OnInit {
 
     constructor(private mapPos:MapPositionService) {
         this.addPoint(new DangerPoint(
-            53.5,10,'Bordstein zu hoch', 'hier sollte der Bordstein abgesenkt werden, weil sonst die Rollstuhlfahrer aus dem Behindertenheim über den Radweg fahren',42, false));
+            53.5,10,'Bordstein zu hoch', 'hier sollte der Bordstein abgesenkt werden, weil sonst die Rollstuhlfahrer aus dem Behindertenheim über den Radweg fahren',42, false, false));
       this.addPoint(new DangerPoint(
-          53.51,9.9,'Toter Winkel durch Werbeschild', 'Die Reklame verhindert, das Radfahrer aus der Ausfahrt gesehen werden.',12, false));
+          53.51,9.9,'Toter Winkel durch Werbeschild', 'Die Reklame verhindert, das Radfahrer aus der Ausfahrt gesehen werden.',12, false, false));
   }
 
   ngOnInit() {
@@ -37,14 +37,14 @@ export class DangerPointService implements OnInit {
   newPoint() {
      this.addPoint(
           new DangerPoint(
-              this.mapPos.lat, this.mapPos.lon,'', '',0,true
+              this.mapPos.lat, this.mapPos.lon,'', '',0,true, true
               )
           )
   }
     newPointWithPos(lat:number, lon:number) {
          this.addPoint(
           new DangerPoint(
-              lat, lon,'', '',0,true
+              lat, lon,'', '',0,true, true
               )
           )
     }

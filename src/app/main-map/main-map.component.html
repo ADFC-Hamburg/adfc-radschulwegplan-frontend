@@ -22,7 +22,7 @@
 
     <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
        <yaga-marker *ngFor="let point of dangerPointService.danger_points |async" [(lat)]="point.lat" [(lng)]="point.lon" [(draggable)]="point.editable">
-         <yaga-popup (minWidth)="250" (maxWidth)="300">
+         <yaga-popup (minWidth)="250" (maxWidth)="300" [(opened)]="point.opened">
 
 
            <span *ngIf="!point.editable">

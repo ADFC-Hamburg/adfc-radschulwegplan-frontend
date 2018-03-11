@@ -5,6 +5,7 @@ export class DangerPoint {
            public title: string,
            public description: string,
            public typeId: number,
-           public editable: boolean
+           public editable: boolean,
+           public opened: boolean,
        ) {}
 }

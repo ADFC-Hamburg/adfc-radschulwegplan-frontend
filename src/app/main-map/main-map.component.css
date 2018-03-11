@@ -8,3 +8,7 @@ textarea.popup-description {
     width: 100%;
     height: 5em;
 }
+// see  https://github.com/Leaflet/Leaflet/issues/724
+.leaflet-popup-content {
+    width:auto !important;
+}
