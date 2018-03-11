@@ -19,23 +19,15 @@ import 'leaflet.pm/js/L.PM';
                ]
 })
 export class MainMapComponent implements OnInit {
-
-
-    constructor() {
-    }
-
-
-  lat: number
-  lon: number
-  zoom: number
+    lat: number
+    lon: number
+    zoom: number
     constructor(private dangerPointService:DangerPointService, public posService: MapPositionService) { }
-
-  ngOnInit() {
-    this.lat=53.55;
-    this.lon=9.99;
-    this.zoom=10;
-  }
-
+    
     ngOnInit() {
+        this.lat=53.55;
+        this.lon=9.99;
+        this.zoom=10;
     }
+
 }

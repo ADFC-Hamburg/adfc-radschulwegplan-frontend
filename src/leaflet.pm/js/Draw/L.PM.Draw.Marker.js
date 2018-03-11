@@ -96,9 +96,15 @@ Draw.Marker = Draw.extend({
         // get coordinate for new vertex by hintMarker (cursor marker)
         const latlng = this._hintMarker.getLatLng();
 
+        this._map.fire('pm:marker:create', {
+            latlng: latlng
+        });
+        /*
+        
         // create marker
         const marker = new L.Marker(latlng, this.options.markerStyle);
 
+        debugger;
         // add marker to the map
         marker.addTo(this._map);
 
@@ -111,7 +117,7 @@ Draw.Marker = Draw.extend({
             marker,                     // DEPRECATED
             layer: marker,
         });
-
+        */
         this._cleanupSnapping();
     },
     _syncHintMarker(e) {

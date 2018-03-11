@@ -41,5 +41,12 @@ export class DangerPointService implements OnInit {
               )
           )
   }
+    newPointWithPos(lat:number, lon:number) {
+         this.addPoint(
+          new DangerPoint(
+              lat, lon,'', '',0,true
+              )
+          )
+    }
 
 }
