@@ -1,7 +1,9 @@
 import { Directive, SkipSelf } from '@angular/core';
 import { MapProvider } from '@yaga/leaflet-ng2';
 import { DangerPointService } from './shared/danger-point.service';
+import { LatLng, LeafletEvent} from 'leaflet';
 
+//console.log(LeafletEvent);
 //import { Map } from 'leaflet';
 import * as L from 'leaflet';
 import 'leaflet.pm/js/L.PM';
@@ -50,10 +52,10 @@ export class LeafletPmtoolbarDirective  {
             }
         });
         pm.disableDraw();
-        mapProvider.ref.on('pm:marker:create', function (e) {
-            console.log('CREATE',e.latlng, arguments);
+        mapProvider.ref.on('pm:marker:create', function (e:any) {
+            console.log('CREATE',e, arguments);
             
-            dangerPointService.newPointWithPos(e.latlng.lat, e.latlng.lng);
+            dangerPointService.newPointWithPos(e.lat, e.lng);
         });
 /*        mapProvider.ref = this;
         this.addTo(parentMapProvider.ref);

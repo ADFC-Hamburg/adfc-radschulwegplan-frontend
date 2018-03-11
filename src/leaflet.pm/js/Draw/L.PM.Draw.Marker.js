@@ -96,28 +96,8 @@ Draw.Marker = Draw.extend({
         // get coordinate for new vertex by hintMarker (cursor marker)
         const latlng = this._hintMarker.getLatLng();
 
-        this._map.fire('pm:marker:create', {
-            latlng: latlng
-        });
-        /*
-        
-        // create marker
-        const marker = new L.Marker(latlng, this.options.markerStyle);
+        this._map.fire('pm:marker:create',latlng);
 
-        debugger;
-        // add marker to the map
-        marker.addTo(this._map);
-
-        // enable editing for the marker
-        marker.pm.enable();
-
-        // fire the pm:create event and pass shape and marker
-        this._map.fire('pm:create', {
-            shape: this._shape,
-            marker,                     // DEPRECATED
-            layer: marker,
-        });
-        */
         this._cleanupSnapping();
     },
     _syncHintMarker(e) {
