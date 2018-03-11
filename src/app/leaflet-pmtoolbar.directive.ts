@@ -47,6 +47,7 @@ export class LeafletPmtoolbarDirective  {
                 icon: greenIcon
             }
         });
+        pm.disableDraw();
         mapProvider.ref.on('pm:create', function () {
             console.log('CREATE', arguments);
         });
