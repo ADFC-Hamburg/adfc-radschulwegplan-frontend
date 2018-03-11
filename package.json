@@ -24,7 +24,7 @@
     "@yaga/leaflet-ng2": "^1.0.0-rc9",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
-    "leaflet.pm": "^0.23.1",
+    "immutable": "^3.7.6",
     "normalize.css": "^8.0.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"

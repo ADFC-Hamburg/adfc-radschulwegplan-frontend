@@ -8,6 +8,9 @@ import { MainMapComponent } from './main-map/main-map.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LeafletPmtoolbarDirective } from './leaflet-pmtoolbar.directive';
+import { FormsModule } from '@angular/forms';
+import { DangerPointService } from './shared/danger-point.service';
+import { MapPositionService } from './main-map/map-position.service';
 
 
 @NgModule({
@@ -20,9 +23,10 @@ import { LeafletPmtoolbarDirective } from './leaflet-pmtoolbar.directive';
   ],
   imports: [
     BrowserModule,
-    YagaModule
+    YagaModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [DangerPointService, MapPositionService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

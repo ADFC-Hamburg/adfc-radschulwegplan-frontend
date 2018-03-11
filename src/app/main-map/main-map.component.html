@@ -1,17 +1,11 @@
 <yaga-map
-  [lat]="53.55"
-  [lng]="9.99"
-  [zoom]="10"
+  [(lat)]="posService.lat"
+  [(lng)]="posService.lon"
+  [(zoom)]="posService.zoom"
   >
   <leaflet-pm-toolbar>
     </leaflet-pm-toolbar>
   <yaga-layers-control>
-    <yaga-tile-layer
-      yaga-base-layer="OpenStreetMap Standard"
-      [url]="'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"
-      [attribution]="'&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap-Contributors</a>'"
-      >
-    </yaga-tile-layer>
     <yaga-tile-layer
       yaga-base-layer="OpenCyleMap"
       [url]="'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png'"
@@ -19,7 +13,49 @@
 
       >
     </yaga-tile-layer>
+    <yaga-tile-layer
+      yaga-base-layer="OpenStreetMap Standard"
+      [url]="'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"
+      [attribution]="'&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap-Contributors</a>'"
+      >
+    </yaga-tile-layer>
+
+    <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
+       <yaga-marker *ngFor="let point of dangerPointService.danger_points |async" [(lat)]="point.lat" [(lng)]="point.lon" [(draggable)]="point.editable">
+         <yaga-popup (minWidth)="250" (maxWidth)="300">
+
+
+           <span *ngIf="!point.editable">
+             <h3>{{ point.title }}<span *ngIf="point.title==''">Kein Titel festgelegt</span></h3>
+             <div>{{ point.description }}</div>
+             <div *ngIf="point.description==''">Kein Beschreibung festgelegt</div>
+             <button (click)="point.editable=true">Bearbeiten</button>
+           </span>
+           <span *ngIf="point.editable">
+             <div><input  class="popup-title" type="text" [(ngModel)]="point.title" width="80"/></div>
+             <div><textarea class="popup-description" [(ngModel)]="point.description" >
+             </textarea></div>
+             <div>(Position: {{ point.lat | number:'1.5-5' }}&deg;N, {{ point.lon | number:'1.5-5' }}&deg;O)</div>
+             <div>Zum anpassen der Position, den Punkt verschieben und anschließend hier mit OK bestätigen.</div>
+             <button (click)="point.editable=false">OK</button>
+           </span>
+         </yaga-popup>
+         <yaga-icon
+           iconUrl="http://leafletjs.com/examples/custom-icons/leaf-green.png"
+           shadowUrl="http://leafletjs.com/examples/custom-icons/leaf-shadow.png"
+           [iconSize]="[38, 95]"
+           [shadowSize]="[50, 64]"
+           [iconAnchor]="[22, 94]" 
+           [shadowAnchor]="[4, 62]"
+           [popupAnchor]="[-3, -76]"
+           >
+           </yaga-icon>
+       </yaga-marker>
+    </yaga-layer-group>
   </yaga-layers-control>
   <yaga-attribution-control>
   </yaga-attribution-control>
 </yaga-map>
+<!--
+
+-->
