@@ -40,16 +40,8 @@
              <button (click)="point.editable=false">OK</button>
            </span>
          </yaga-popup>
-         <yaga-icon
-           iconUrl="http://leafletjs.com/examples/custom-icons/leaf-green.png"
-           shadowUrl="http://leafletjs.com/examples/custom-icons/leaf-shadow.png"
-           [iconSize]="[38, 95]"
-           [shadowSize]="[50, 64]"
-           [iconAnchor]="[22, 94]" 
-           [shadowAnchor]="[4, 62]"
-           [popupAnchor]="[-3, -76]"
-           >
-           </yaga-icon>
+         <leaflet-icon-glyph  prefix="fa" glyph="globe">
+           </leaflet-icon-glyph>
        </yaga-marker>
     </yaga-layer-group>
   </yaga-layers-control>

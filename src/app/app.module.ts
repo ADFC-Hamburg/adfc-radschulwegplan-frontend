@@ -11,6 +11,7 @@ import { LeafletPmtoolbarDirective } from './leaflet-pmtoolbar.directive';
 import { FormsModule } from '@angular/forms';
 import { DangerPointService } from './shared/danger-point.service';
 import { MapPositionService } from './main-map/map-position.service';
+import { LeafletIconGlyphDirective } from './leaflet-icon-glyph.directive';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MapPositionService } from './main-map/map-position.service';
     MainMapComponent,
     SidebarComponent,
     FooterComponent,
-    LeafletPmtoolbarDirective
+    LeafletPmtoolbarDirective,
+    LeafletIconGlyphDirective
   ],
   imports: [
     BrowserModule,
