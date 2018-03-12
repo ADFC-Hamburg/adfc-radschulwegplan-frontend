@@ -40,7 +40,7 @@
              <button (click)="point.editable=false">OK</button>
            </span>
          </yaga-popup>
-         <leaflet-icon-glyph  prefix="fa" glyph="globe">
+         <leaflet-icon-glyph  prefix="fa" [(glyph)]="point.glyphIcon">
            </leaflet-icon-glyph>
        </yaga-marker>
     </yaga-layer-group>

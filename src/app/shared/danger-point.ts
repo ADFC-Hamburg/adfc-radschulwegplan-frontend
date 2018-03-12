@@ -7,5 +7,6 @@ export class DangerPoint {
            public typeId: number,
            public editable: boolean,
            public opened: boolean,
+           public glyphIcon: string,
        ) {}
 }
