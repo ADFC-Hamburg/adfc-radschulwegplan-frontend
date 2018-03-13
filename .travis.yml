@@ -4,10 +4,6 @@ node_js:
 sudo: true
 dist: trusty
 
-branches:
-  only:
-  - master
-
 before_script:
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
@@ -18,6 +14,7 @@ before_script:
  - sudo dpkg -i google-chrome*.deb
 
 script: 
-  - ng test --watch false -cc
-  - npm run e2e
-  - ng build -bh "https://tools.adfc-hamburg.de/"
+ - ng test --watch false -cc
+ - npm run e2e
+ - ng build -bh "https://radschulwegplan.hamburg.adfc.de/frontend/$TRAVIS_BRANCH"
+ - bash <(curl -s https://codecov.io/bash)
