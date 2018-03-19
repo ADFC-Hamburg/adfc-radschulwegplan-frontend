@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MainMapComponent } from '../main-map/main-map.component';
+import { DangerPointService } from '../shared/danger-point.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dangerPointService:DangerPointService) { }
 
   ngOnInit() {
   }
-
+  
+  newDangerPoint() {
+     this.dangerPointService.newPoint();
+  }
 }
