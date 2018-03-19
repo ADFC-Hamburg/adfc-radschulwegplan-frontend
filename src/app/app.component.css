@@ -1,16 +1,28 @@
+/*
+ * ADFC Colours:
+ * #004b7c - dark blue
+ * #7989a4 - mid blue
+ * #bfc4d0 - light blue
+ * #ee7400 - orange
+ */
+
 .fixed-aside__header {
-  background-color: #99f;
+  background-color: #7989a4;
 
   position: absolute;
   top: 0;
   left: 0;
   height: 50px;
   width: 100%;
+  padding: 5px;
+
+  font-variant: small-caps;
+  font-size: 13px;
 }
 
 .fixed-aside__toolbar {
-  background-color: #ccf;
-  border-right: 1px solid #99f;
+  background-color: #bfc4d0;
+  border-right: 1px solid #7989a4;
 
   position: absolute;
   top: 50px;
@@ -20,7 +32,7 @@
 }
 
 .fixed-footer {
-  background-color: #ccf;
+  background-color: #bfc4d0;
 
   position: absolute;
   bottom: 0;
@@ -30,8 +42,6 @@
 }
 
 .main-content {
-  background-color: #ddd;
-
   position: absolute;
   top: 100px;
   left: 0;
