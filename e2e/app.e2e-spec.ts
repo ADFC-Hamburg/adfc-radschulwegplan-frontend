@@ -9,6 +9,6 @@ describe('adfc-radschulwege-frontend App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Radschulwege');
+    expect(page.getParagraphText()).toEqual('Radschulwegplan');
   });
 });
