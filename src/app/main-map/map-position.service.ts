@@ -7,9 +7,9 @@ export class MapPositionService  {
   zoom: number
 
     constructor() {
-        this.lat=53.55;
-        this.lon=9.99;
-        this.zoom=10;
+        this.lat=53.5076;
+        this.lon=9.9948;
+        this.zoom=16;
     }
 
 }
