@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { DangerPointService } from './danger-point.service';
+import { MapPositionService } from '../main-map/map-position.service';
 
 describe('DangerPointService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DangerPointService]
+	providers: [DangerPointService, MapPositionService]
     });
   });
 
