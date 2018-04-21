@@ -1,0 +1,26 @@
+.toolbar__action {
+  margin: 10px 5px;
+  padding: 5px 10px;
+  border: 1px solid #004b7c;
+  border-radius: 8px;
+
+  background-color: #7989a4;
+  color: #004b7c;
+  transition: color, border-color, 300ms ease;
+
+  cursor: pointer;
+}
+
+.toolbar__action:hover {
+  color: #ee7400;
+  border-color: #ee7400;
+}
+
+.toolbar__action-badge {
+  margin-top: 13px;
+  margin-left: 11px;
+}
+
+.toolbar__action.active {
+    background-color: green;
+}

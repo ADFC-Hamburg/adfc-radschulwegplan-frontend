@@ -5,12 +5,12 @@
     <!-- adfc logo -->
   </div>
   <div class="fixed-aside__toolbar">
-   <app-sidebar></app-sidebar>
+   <app-sidebar (modeChange)="modeChange($event)"></app-sidebar>
   </div>
 </div>
 
 <div class="main-content">
-  <app-main-map></app-main-map>
+  <app-main-map [editMode]="editMode"></app-main-map>
 </div>
 
 <div class="fixed-footer">
