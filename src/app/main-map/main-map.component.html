@@ -21,10 +21,9 @@
     </yaga-tile-layer>
 
     <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
-       <yaga-marker *ngFor="let point of dangerPointService.danger_points |async" [(lat)]="point.lat" [(lng)]="point.lon" [(draggable)]="point.editable">
+      <ng-container *ngFor="let point of dangerPointService.danger_points |async" >
+       <yaga-marker [(lat)]="point.lat" [(lng)]="point.lon">
          <yaga-popup (minWidth)="250" (maxWidth)="300" [(opened)]="point.opened">
-
-
            <span *ngIf="!point.editable">
              <h3>{{ point.title }}<span *ngIf="point.title==''">Kein Titel festgelegt</span></h3>
              <div>{{ point.description }}</div>
@@ -43,6 +42,7 @@
          <leaflet-icon-glyph  prefix="fa" [(glyph)]="point.glyphIcon">
            </leaflet-icon-glyph>
        </yaga-marker>
+      </ng-container>
     </yaga-layer-group>
   </yaga-layers-control>
   <yaga-attribution-control>

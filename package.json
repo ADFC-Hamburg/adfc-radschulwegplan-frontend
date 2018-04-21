@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/router": "^5.2.9",
     "@turf/kinks": "^5.1.5",
-    "@yaga/leaflet-ng2": "^1.0.0-rc9",
+    "@yaga/leaflet-ng2": "^1.0.0-rc10",
     "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",
     "immutable": "^3.8.2",
