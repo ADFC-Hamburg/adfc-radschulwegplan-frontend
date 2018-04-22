@@ -5,10 +5,12 @@
  * #bfc4d0 - light blue
  * #ee7400 - orange
  */
-
+h1 {
+    font-weight: 500;
+    font-size: 22px;
+}
 .fixed-aside__header {
-  background-color: #7989a4;
-
+  border-right: 1px solid #7989a4;
   position: absolute;
   top: 0;
   left: 0;
@@ -19,9 +21,11 @@
   font-variant: small-caps;
   font-size: 13px;
 }
-
+.adfc-logo {
+    width: 130px;
+}
 .fixed-aside__toolbar {
-  background-color: #bfc4d0;
+
   border-right: 1px solid #7989a4;
 
   position: absolute;
