@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EditMode } from './shared/edit-mode-enum';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +8,4 @@ import { EditMode } from './shared/edit-mode-enum';
 export class AppComponent {
     title = 'Radschulwegplan';
 
-    editMode: EditMode;
-    modeChange(val: EditMode) {
-        this.editMode=val;
-    }
 }

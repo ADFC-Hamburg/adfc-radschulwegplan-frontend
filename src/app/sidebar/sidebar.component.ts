@@ -1,7 +1,8 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MainMapComponent } from '../main-map/main-map.component';
 import { EditMode } from '../shared/edit-mode-enum';
 import { EditModeAware } from '../shared/edit-mode-enum-aware';
+import { MapEditModeService } from '../main-map/map-edit-mode.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -9,25 +10,26 @@ import { EditModeAware } from '../shared/edit-mode-enum-aware';
 })
 @EditModeAware
 
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
-    editMode: EditMode;
+    private mapEditModeService: MapEditModeService;
     
-    @Output('modeChange') public modeChangeEvent: EventEmitter<EditMode> = new EventEmitter();
-
-    constructor() { }
-
-    ngOnInit() {
-        this.editMode=EditMode.NORMAL;
+    constructor(
+        mapEditModeService: MapEditModeService
+    ) {
+        this.mapEditModeService = mapEditModeService;
     }
 
     changeMode(val: EditMode) {
-        if (this.editMode == val) {
-            val = EditMode.NORMAL;
+        if (this.isMode(val)) {
+            this.mapEditModeService.setMode(EditMode.NORMAL);
+        } else {
+            this.mapEditModeService.setMode(val);
         }
-        
-        this.modeChangeEvent.emit(val);
-        this.editMode=val;
-        
     }
+
+    isMode(val: EditMode) {
+        return  (this.mapEditModeService.getMode()==val);
+    }
+
 }

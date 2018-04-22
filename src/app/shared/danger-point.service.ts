@@ -41,12 +41,18 @@ export class DangerPointService implements OnInit {
               )
           )
   }
-    newPointWithPos(lat:number, lon:number) {
-         this.addPoint(
-          new DangerPoint(
-              lat, lon,'', '',0,true, true, 'apple'
-              )
-          )
+    newPointWithPos(lat:number, lon:number):DangerPoint {
+        var pt = new DangerPoint(
+            lat, lon,'', '', 0, true, false, 'apple'
+        );
+
+        this.addPoint(pt);
+        // Workaround for bug, that the popup is opened with the wrong size
+        setTimeout(() => {
+            pt.opened=true;
+        }, 1);
+
+        return pt;
     }
 
 }

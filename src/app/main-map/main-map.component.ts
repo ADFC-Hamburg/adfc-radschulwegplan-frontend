@@ -1,5 +1,5 @@
 
-import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MapComponent } from '@yaga/leaflet-ng2';
 import { DangerPoint } from '../shared/danger-point';
 import { DangerPointService } from '../shared/danger-point.service';
@@ -27,8 +27,6 @@ export class MainMapComponent implements OnInit {
     lon: number
     zoom: number
 
-    @Input('editMode') editMode: EditMode;
-    
     constructor(private dangerPointService:DangerPointService, public posService: MapPositionService) { }
     
     ngOnInit() {
@@ -36,7 +34,5 @@ export class MainMapComponent implements OnInit {
         this.lon = 9.99;
         this.zoom = 10;
         this.apiKey = environment.openCycleMapApiKey;
-        this.editMode = EditMode.NORMAL;
     }
-
 }

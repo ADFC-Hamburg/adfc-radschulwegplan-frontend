@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DangerPointService } from './shared/danger-point.service';
 import { MapPositionService } from './main-map/map-position.service';
 import { LeafletIconGlyphDirective } from './leaflet-icon-glyph.directive';
-
+import { MapEditModeService } from './main-map/map-edit-mode.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { LeafletIconGlyphDirective } from './leaflet-icon-glyph.directive';
     YagaModule,
     FormsModule
   ],
-    providers: [DangerPointService, MapPositionService],
+    providers: [DangerPointService, MapPositionService, MapEditModeService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
