@@ -8,7 +8,7 @@ import { LeafletIconGlyphDirective } from '../leaflet-icon-glyph.directive';
 import { FormsModule }   from '@angular/forms';
 import { DangerPointService } from '../shared/danger-point.service';
 import { MapPositionService } from '../main-map/map-position.service';
-
+import { MapEditModeService } from '../main-map/map-edit-mode.service';
 
 describe('MainMapComponent', () => {
   let component: MainMapComponent;
@@ -27,7 +27,8 @@ describe('MainMapComponent', () => {
 	],
 	providers: [
 	    DangerPointService,
-	    MapPositionService
+	    MapPositionService,
+            MapEditModeService
 	]
 	
     })
