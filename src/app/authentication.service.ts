@@ -12,7 +12,8 @@ export class AuthenticationService {
     login(username: string, password: string) {
 
         //let basepath='https://radschulwegplan.hamburg.adfc.de/backend/master/';
-        let basepath='http://localhost:8000';
+        //let basepath='http://localhost:8000';
+        let basepath='https://radschulwegplan.hamburg.adfc.de/backend/feature_json_login';
         
         return this.http.post<any>(basepath+'/api/v1/login', { 'username': username, 'password': password })
             .map(username => {
