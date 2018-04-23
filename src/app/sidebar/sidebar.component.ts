@@ -1,8 +1,10 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Injectable, EventEmitter, Output } from '@angular/core';
 import { MainMapComponent } from '../main-map/main-map.component';
 import { EditMode } from '../shared/edit-mode-enum';
 import { EditModeAware } from '../shared/edit-mode-enum-aware';
 import { MapEditModeService } from '../main-map/map-edit-mode.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -10,14 +12,13 @@ import { MapEditModeService } from '../main-map/map-edit-mode.service';
 })
 @EditModeAware
 
+@Injectable()
 export class SidebarComponent {
 
-    private mapEditModeService: MapEditModeService;
-    
     constructor(
-        mapEditModeService: MapEditModeService
+        private router: Router,
+        private mapEditModeService: MapEditModeService
     ) {
-        this.mapEditModeService = mapEditModeService;
     }
 
     changeMode(val: EditMode) {
@@ -30,6 +31,10 @@ export class SidebarComponent {
 
     isMode(val: EditMode) {
         return  (this.mapEditModeService.getMode()==val);
+    }
+
+    logout() {
+           this.router.navigateByUrl('/login');
     }
 
 }

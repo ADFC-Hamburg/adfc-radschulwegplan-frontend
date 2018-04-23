@@ -242,7 +242,6 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
     private _setIconStyles(div: HTMLElement, name:string) {
 	if (name === 'shadow') {
             //	FIXME    return Icon.prototype._setIconStyles.call(this, div, name);
-            debugger;
             return ;
 	}
         

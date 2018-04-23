@@ -1,43 +1,6 @@
-/*
- * ADFC Colours:
- * #004b7c - dark blue
- * #7989a4 - mid blue
- * #bfc4d0 - light blue
- * #ee7400 - orange
- */
-h1 {
-    font-weight: 500;
-    font-size: 22px;
-}
-.fixed-aside__header {
-  border-right: 1px solid #7989a4;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: 100%;
-  padding: 5px;
-
-  font-variant: small-caps;
-  font-size: 13px;
-}
-.adfc-logo {
-    width: 130px;
-}
-.fixed-aside__toolbar {
-
-  border-right: 1px solid #7989a4;
-
-  position: absolute;
-  top: 50px;
-  left: 0;
-  height: 50px;
-  width: 100%;
-}
 
 .fixed-footer {
   background-color: #bfc4d0;
-
   position: absolute;
   bottom: 0;
   left: 0;
@@ -45,60 +8,4 @@ h1 {
   width: 100%;
 }
 
-.main-content {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  height: calc(100% - 120px);
-  width: 100%;
-}
 
-@media only screen and (min-width: 512px) {
-  .fixed-aside__header {
-    height: 128px;
-    width: 15vw;
-  }
-
-  .fixed-aside__toolbar {
-    top: 128px;
-    height: calc(100% - 128px);
-    width: 15vw;
-  }
-
-  .fixed-footer {
-    left: 15vw;
-    width: calc(100% - 15vw);
-  }
-
-  .main-content {
-    top: 0;
-    left: 15vw;
-    height: calc(100% - 20px);
-    width: calc(100% - 15vw);
-  }
-}
-
-@media only screen and (min-width: 1620px) {
-  .fixed-aside__header {
-    height: 128px;
-    width: 243px;
-  }
-
-  .fixed-aside__toolbar {
-    top: 128px;
-    height: calc(100% - 128px);
-    width: 243px;
-  }
-
-  .fixed-footer {
-    left: 243px;
-    width: calc(100% - 243px);
-  }
-
-  .main-content {
-    top: 0;
-    left: 243px;
-    height: calc(100% - 20px);
-    width: calc(100% - 243px);
-  }
-}
