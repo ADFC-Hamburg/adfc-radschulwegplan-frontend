@@ -1,3 +1,39 @@
 <div class="toolbar__content">
+  <div class="toolbar__action" [class.active]="isMode(EditMode.LINE)" (click)="changeMode(EditMode.LINE)">
+    <span class="fa-stack toolbar__action-icon">
+      <i class="fa fa-map-signs fa-stack-2x"></i>
+      <i class="fa fa-plus fa-stack-1x toolbar__action-badge"></i>
+    </span>
+    <span class="toolbar__action-title">Radschulweg Anlegen</span>
+  </div>
 
+  <div class="toolbar__action" [class.active]="isMode(EditMode.MARKER)" (click)="changeMode(EditMode.MARKER)">
+    <span class="fa-stack toolbar__action-icon">
+      <i class="fa fa-map-marker fa-stack-2x"></i>
+      <i class="fa fa-plus fa-stack-1x toolbar__action-badge"></i>
+    </span>
+    <span class="toolbar__action-title">Gefahrenpunkt Anlegen</span>
+  </div>
+
+  <div class="toolbar__action" [class.active]="isMode(EditMode.EDIT)" (click)="changeMode(EditMode.EDIT)">
+    <span class="fa-stack toolbar__action-icon">
+      <i class="fa fa-arrows-alt fa-stack-2x"></i>
+    </span>
+    <span class="toolbar__action-title">Verschieben &amp; Bearbeiten</span>
+  </div>
+
+  <div class="toolbar__action" [class.active]="isMode(EditMode.DELETE)" (click)="changeMode(EditMode.DELETE)">
+    <span class="fa-stack toolbar__action-icon">
+      <i class="fa fa-trash fa-stack-2x"></i>
+    </span>
+    <span class="toolbar__action-title">Löschen</span>
+  </div>
+
+  <div class="toolbar__action" (click)="logout()">
+    <span class="fa-stack toolbar__action-icon">
+      <i class="fa fa-sign-out fa-stack-2x"></i>
+    </span>
+    <span class="toolbar__action-title">Abmelden</span>
+  </div>
+    
 </div>

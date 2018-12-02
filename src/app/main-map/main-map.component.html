@@ -1,15 +1,11 @@
 <yaga-map
-  [lat]="53.55"
-  [lng]="9.99"
-  [zoom]="10"
+  [(lat)]="posService.lat"
+  [(lng)]="posService.lon"
+  [(zoom)]="posService.zoom"
   >
+  <leaflet-pm-toolbar>
+    </leaflet-pm-toolbar>
   <yaga-layers-control>
-    <yaga-tile-layer
-      yaga-base-layer="OpenStreetMap Standard"
-      [url]="'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"
-      [attribution]="'&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap-Contributors</a>'"
-      >
-    </yaga-tile-layer>
     <yaga-tile-layer
       yaga-base-layer="OpenCyleMap"
       [url]="'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=' + apiKey"
@@ -17,7 +13,40 @@
 
       >
     </yaga-tile-layer>
+    <yaga-tile-layer
+      yaga-base-layer="OpenStreetMap Standard"
+      [url]="'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"
+      [attribution]="'&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap-Contributors</a>'"
+      >
+    </yaga-tile-layer>
+
+    <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
+      <ng-container *ngFor="let point of dangerPointService.danger_points |async" >
+       <yaga-marker [(lat)]="point.lat" [(lng)]="point.lon">
+         <yaga-popup (minWidth)="250" (maxWidth)="300" [(opened)]="point.opened">
+           <span *ngIf="!point.editable">
+             <h3>{{ point.title }}<span *ngIf="point.title==''">Kein Titel festgelegt</span></h3>
+             <div>{{ point.description }}</div>
+             <div *ngIf="point.description==''">Kein Beschreibung festgelegt</div>
+             <button (click)="point.editable=true">Bearbeiten</button>
+           </span>
+           <span *ngIf="point.editable">
+             <div><input  class="popup-title" type="text" [(ngModel)]="point.title" width="80"/></div>
+             <div><textarea class="popup-description" [(ngModel)]="point.description" >
+             </textarea></div>
+             <div>(Position: {{ point.lat | number:'1.5-5' }}&deg;N, {{ point.lon | number:'1.5-5' }}&deg;O)</div>
+             <button (click)="point.editable=false">OK</button>
+           </span>
+         </yaga-popup>
+         <leaflet-icon-glyph  prefix="fa" [(glyph)]="point.glyphIcon">
+           </leaflet-icon-glyph>
+       </yaga-marker>
+      </ng-container>
+    </yaga-layer-group>
   </yaga-layers-control>
   <yaga-attribution-control>
   </yaga-attribution-control>
 </yaga-map>
+<!--
+
+-->

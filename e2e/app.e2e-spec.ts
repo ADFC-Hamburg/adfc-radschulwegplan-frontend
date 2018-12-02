@@ -1,5 +1,4 @@
 import { AppPage } from './app.po';
-
 describe('adfc-radschulwege-frontend App', () => {
   let page: AppPage;
 
@@ -7,8 +6,9 @@ describe('adfc-radschulwege-frontend App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Radschulwegplan');
+  it('Login should display welcome message', () => {
+      page.navigateToRoot();
+      expect(page.getLoginHeadlineText()).toEqual('BEI RADSCHULWEGPLAN ANMELDEN!');
   });
 });
+
