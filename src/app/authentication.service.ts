@@ -1,8 +1,8 @@
+
+import {map,  tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
@@ -11,21 +11,21 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
 
-        //let basepath='https://radschulwegplan.hamburg.adfc.de/backend/master/';
-        //let basepath='http://localhost:8000';
-        let basepath='https://radschulwegplan.hamburg.adfc.de/backend/feature_json_login';
-        
-        return this.http.post<any>(basepath+'/api/v1/login', { 'username': username, 'password': password })
-            .map(username => {
+        // let basepath='https://radschulwegplan.hamburg.adfc.de/backend/master/';
+        // let basepath='http://localhost:8000';
+        const basepath = 'https://radschulwegplan.hamburg.adfc.de/backend/feature_json_login';
+
+        return this.http.post<any>(basepath + '/api/v1/login', { 'username': username, 'password': password }).pipe(
+            map(usernameParm => {
                 // login successful if there's a jwt token in the response
-                if (username) {
+                if (usernameParm) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', username);
+                    localStorage.setItem('currentUser', usernameParm);
                 }
 
-                return username;
-            });
-        
+                return usernameParm;
+            }));
+
     }
 
     logout() {

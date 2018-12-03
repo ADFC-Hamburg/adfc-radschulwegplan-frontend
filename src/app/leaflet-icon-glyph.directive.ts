@@ -44,7 +44,7 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
      * This is an EventEmitter used to notify on any change in this object. It is mainly created to provide reactions
      * of the marker directive on changes.
      */
-    @Output('update') public updateEvent: EventEmitter<LeafletEvent> = new EventEmitter();
+    @Output() public updateEvent: EventEmitter<LeafletEvent> = new EventEmitter();
 
 //    private className: string;
     private _prefix: string;
@@ -58,23 +58,23 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
         super({
             iconUrl: GLYPH_MARKER_ICON,
             iconSize: new Point(25, 48),
-	    iconAnchor:  new Point(12, 48),
-	    popupAnchor: new Point(0, -38),
-	    shadowSize:  new Point(41, 48),
+            iconAnchor: new Point(12, 48),
+            popupAnchor: new Point(0, -38),
+            shadowSize: new Point(41, 48),
             className: '',
-/*  	    prefix: '',
-	    glyph: 'home',
-	    glyphColor: 'white',
-	    glyphSize: '11px',	// in CSS units
-	    glyphAnchor: new Point(0, -7),*/
+/*          prefix: '',
+            glyph: 'home',
+            glyphColor: 'white',
+            glyphSize: '11px',  // in CSS units
+            glyphAnchor: new Point(0, -7),*/
         });
 
-        this._prefix='';
-        this._glyph='home';
-        this._glyphColor='white';
-        this._glyphAnchor=new Point(0, -7);
-        //this._bgSize 
-        //this._bgPos
+        this._prefix = '';
+        this._glyph = 'home';
+        this._glyphColor = 'white';
+        this._glyphAnchor = new Point(0, -7);
+        // this._bgSize
+        // this._bgPos
         this.markerProvider.ref.setIcon(this);
     }
 
@@ -92,7 +92,7 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
             type: 'update',
         });
     }
-    public get prefx():string {
+    public get prefx(): string {
         return this._prefix;
     }
 
@@ -108,7 +108,7 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
         });
 
     }
-    public get glyph():string {
+    public get glyph(): string {
         return this._glyph;
     }
 
@@ -188,49 +188,48 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
      * leaflet div icon.
      */
     public createIcon(oldDivIcon: HTMLElement): HTMLElement {
-        var div = document.createElement('div'),
-	options = this.options;
-        
-	if (this._glyph) {
-	    div.appendChild(this.createGlyph());
-	}
-        
-	this._setIconStyles(div, this.options.className);
-	return div;
+        const div = document.createElement('div'),
+              options = this.options;
+
+        if (this._glyph) {
+            div.appendChild(this.createGlyph());
+        }
+
+        this._setIconStyles(div, this.options.className);
+        return div;
     }
-    
+
     private createGlyph() {
-	var glyphClass,
-	textContent,
-	options = this.options;
-        
-	if (!this._prefix) {
-	    glyphClass = '';
-	    textContent = this._glyph;
-	} else if(this._glyph.slice(0, this._prefix.length+1) === this._prefix + "-") {
-	    glyphClass = this._glyph;
-	} else {
-	    glyphClass = this._prefix + "-" + this._glyph;
-	}
+        let glyphClass, textContent;
+        const options = this.options;
 
-        //console.log('leaflet-icon-glpyh.createGlyph',options.iconSize);
-	var span = DomUtil.create('span', this._prefix + ' ' + glyphClass);
-	span.style.fontSize = this._glyphSize;
-	span.style.color = this._glyphColor;
+        if (!this._prefix) {
+            glyphClass = '';
+            textContent = this._glyph;
+        } else if (this._glyph.slice(0, this._prefix.length + 1) === this._prefix + '-') {
+            glyphClass = this._glyph;
+        } else {
+            glyphClass = this._prefix + '-' + this._glyph;
+        }
+
+        // console.log('leaflet-icon-glpyh.createGlyph',options.iconSize);
+        let span = DomUtil.create('span', this._prefix + ' ' + glyphClass);
+        span.style.fontSize = this._glyphSize;
+        span.style.color = this._glyphColor;
         // FIXME warum muss man hier einen Typecast machen?
-	span.style.width = (options.iconSize as Point).x + 'px';
-	span.style.lineHeight = (options.iconSize as Point).y + 'px';
-	span.style.textAlign = 'center';
-	span.style.marginLeft = (this._glyphAnchor as Point).x + 'px';
-	span.style.marginTop = (this._glyphAnchor as Point).y + 'px';
-	span.style.pointerEvents = 'none';
+        span.style.width = (options.iconSize as Point).x + 'px';
+        span.style.lineHeight = (options.iconSize as Point).y + 'px';
+        span.style.textAlign = 'center';
+        span.style.marginLeft = (this._glyphAnchor as Point).x + 'px';
+        span.style.marginTop = (this._glyphAnchor as Point).y + 'px';
+        span.style.pointerEvents = 'none';
 
-	if (textContent) {
-	    span.innerHTML = textContent;
-	    span.style.display = 'inline-block';
-	}
-        
-	return span;
+        if (textContent) {
+            span.innerHTML = textContent;
+            span.style.display = 'inline-block';
+        }
+
+        return span;
     }
 
     private  _getIconUrl(name: string) {
@@ -239,42 +238,41 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
         return this.options[name + 'Url'];
     }
 
-    private _setIconStyles(div: HTMLElement, name:string) {
-	if (name === 'shadow') {
-            //	FIXME    return Icon.prototype._setIconStyles.call(this, div, name);
+    private _setIconStyles(div: HTMLElement, name: string) {
+        if (name === 'shadow') {
+            //  FIXME    return Icon.prototype._setIconStyles.call(this, div, name);
             return ;
-	}
-        
-	var options = this.options,
-	size = options.iconSize as Point,
-	anchor = options.iconAnchor as Point;
-        
-	if (!anchor && size) {
-	    anchor =  size.divideBy(2);
-	}
-        
-	div.className = 'leaflet-marker-icon leaflet-glyph-icon ' + name;
-	var src = this._getIconUrl('icon');
-	if (src) {
-	    div.style.backgroundImage = "url('" + src + "')";
-	}
+        }
 
-	if (this._bgPos) {
-	    div.style.backgroundPosition = (-this._bgPos.x) + 'px ' + (-this._bgPos.y) + 'px';
-	}
-	if (this._bgSize) {
-	    div.style.backgroundSize = (this._bgSize.x) + 'px ' + (this._bgSize.y) + 'px';
-	}
-       
-	if (anchor) {
-	    div.style.marginLeft = (-anchor.x) + 'px';
-	    div.style.marginTop  = (-anchor.y) + 'px';
-	}
-        
-	if (size) {
-	    div.style.width  = size[0] + 'px';
-	    div.style.height = size[1] + 'px';
-	}
+        const size = this.options.iconSize as Point;
+        let anchor = this.options.iconAnchor as Point;
+
+        if (!anchor && size) {
+            anchor =  size.divideBy(2);
+        }
+
+        div.className = 'leaflet-marker-icon leaflet-glyph-icon ' + name;
+        const src = this._getIconUrl('icon');
+        if (src) {
+            div.style.backgroundImage = 'url(\'' + src + '\')';
+        }
+
+        if (this._bgPos) {
+            div.style.backgroundPosition = (-this._bgPos.x) + 'px ' + (-this._bgPos.y) + 'px';
+        }
+        if (this._bgSize) {
+            div.style.backgroundSize = (this._bgSize.x) + 'px ' + (this._bgSize.y) + 'px';
+        }
+
+        if (anchor) {
+            div.style.marginLeft = (-anchor.x) + 'px';
+            div.style.marginTop  = (-anchor.y) + 'px';
+        }
+
+        if (size) {
+            div.style.width  = size[0] + 'px';
+            div.style.height = size[1] + 'px';
+        }
     }
 
 }

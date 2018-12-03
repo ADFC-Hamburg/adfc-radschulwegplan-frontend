@@ -6,7 +6,7 @@ import { MapPositionService } from '../main-map/map-position.service';
 describe('DangerPointService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-	providers: [DangerPointService, MapPositionService]
+       providers: [DangerPointService, MapPositionService]
     });
   });
 

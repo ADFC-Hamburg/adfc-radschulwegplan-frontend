@@ -1,7 +1,7 @@
 import { LeafletIconGlyphDirective } from './leaflet-icon-glyph.directive';
-//import { MarkerProvider } from '@yaga/leaflet-ng2/lib/marker.provider';
+// import { MarkerProvider } from '@yaga/leaflet-ng2/lib/marker.provider';
 
-//import { expect } from 'chai';
+// import { expect } from 'chai';
 import { marker, point } from 'leaflet';
 import {
     IconDirective,
@@ -15,7 +15,7 @@ import {
 
 
 describe('LeafletIconGlyphDirective', () => {
-    
+
     let map: MapComponent;
     let ligd: LeafletIconGlyphDirective;
     beforeEach(() => {
@@ -26,10 +26,10 @@ describe('LeafletIconGlyphDirective', () => {
         );
         (map as any)._size = point(100, 100);
         (map as any)._pixelOrigin = point(50, 50);
-        ligd = new LeafletIconGlyphDirective({ ref: marker([0,0]) });
+        ligd = new LeafletIconGlyphDirective({ ref: marker([0, 0]) });
     });
 
-    
+
 
   it('should create an instance', () => {
     expect(ligd).toBeTruthy();

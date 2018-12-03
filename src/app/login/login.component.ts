@@ -10,17 +10,17 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-    title='Bei Radschulwegplan anmelden!';
+    title = 'Bei Radschulwegplan anmelden!';
     username: string;
     password: string;
     loading = false;
     returnUrl: string;
-    
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        //private alertService: AlertService
+        // private alertService: AlertService
     ) { }
 
     ngOnInit() {
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
-    
+
     login () {
         this.loading = true;
 /*        if (this.authenticationService.login(this.username, this.password)) {
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
                 /* this.alertService.error(error);*/
                 console.log(error);
                 this.loading = false;
-            }); 
+            });
     }
 
 }

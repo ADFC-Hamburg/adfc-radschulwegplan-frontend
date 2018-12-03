@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainMapComponent } from './main-map.component';
 
-import  { YagaModule } from '@yaga/leaflet-ng2';
+import { YagaModule } from '@yaga/leaflet-ng2';
 import { LeafletPmtoolbarDirective } from '../leaflet-pmtoolbar.directive';
 import { LeafletIconGlyphDirective } from '../leaflet-icon-glyph.directive';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { DangerPointService } from '../shared/danger-point.service';
 import { MapPositionService } from '../main-map/map-position.service';
 import { MapEditModeService } from '../main-map/map-edit-mode.service';
@@ -17,20 +17,20 @@ describe('MainMapComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
         declarations: [
-	    MainMapComponent,
-	    LeafletPmtoolbarDirective,
-	    LeafletIconGlyphDirective,
-	],
+            MainMapComponent,
+            LeafletPmtoolbarDirective,
+            LeafletIconGlyphDirective,
+        ],
         imports: [
-	    YagaModule,
-	    FormsModule,
-	],
-	providers: [
-	    DangerPointService,
-	    MapPositionService,
+            YagaModule,
+            FormsModule,
+        ],
+        providers: [
+            DangerPointService,
+            MapPositionService,
             MapEditModeService
-	]
-	
+        ]
+
     })
     .compileComponents();
   }));

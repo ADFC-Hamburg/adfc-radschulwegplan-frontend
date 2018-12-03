@@ -1,8 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-//import { SidebarComponent } from './sidebar/sidebar.component';
-//import { FooterComponent } from './footer/footer.component';
-import { NO_ERRORS_SCHEMA }          from '@angular/core'
+// import { SidebarComponent } from './sidebar/sidebar.component';
+// import { FooterComponent } from './footer/footer.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
