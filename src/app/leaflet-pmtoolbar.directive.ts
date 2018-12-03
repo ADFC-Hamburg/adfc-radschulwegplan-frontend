@@ -85,7 +85,6 @@ export class LeafletPmtoolbarDirective  {
         // set new Mode
         switch (+this.editMode) {
             case EditMode.MARKER:
-                debugger;
                 var that= this.pm.Draw.Marker;
                 this.pm.Draw.Marker._createMarker = function (e) {
                    if(!e.latlng) {
