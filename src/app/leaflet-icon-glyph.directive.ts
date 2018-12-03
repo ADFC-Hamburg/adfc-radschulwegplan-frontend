@@ -44,7 +44,7 @@ export class LeafletIconGlyphDirective extends Icon implements OnInit  {
      * This is an EventEmitter used to notify on any change in this object. It is mainly created to provide reactions
      * of the marker directive on changes.
      */
-    @Output('update') public updateEvent: EventEmitter<LeafletEvent> = new EventEmitter();
+    @Output() public updateEvent: EventEmitter<LeafletEvent> = new EventEmitter();
 
 //    private className: string;
     private _prefix: string;
