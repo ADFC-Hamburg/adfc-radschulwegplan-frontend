@@ -7,20 +7,22 @@
     </leaflet-pm-toolbar>
   <yaga-layers-control>
     <yaga-tile-layer
-      yaga-base-layer="OpenCyleMap"
+       yaga-base-layer
+       [caption]="'OpenCyleMap'"
       [url]="'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=' + apiKey"
       [attribution]="'&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap-Contributors</a> Tiles courtesy of <a href=https://www.thunderforest.com/>Andy Allan</a>'"
 
       >
     </yaga-tile-layer>
     <yaga-tile-layer
-      yaga-base-layer="OpenStreetMap Standard"
+       yaga-base-layer
+       [caption]="'OpenStreetMap Standard'"
       [url]="'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"
       [attribution]="'&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap-Contributors</a>'"
       >
     </yaga-tile-layer>
 
-    <yaga-layer-group yaga-overlay-layer="Gefahrenpunkte">
+    <yaga-layer-group yaga-overlay-layer [caption]="'Gefahrenpunkte'">
       <ng-container *ngFor="let point of dangerPointService.danger_points |async" >
        <yaga-marker [(lat)]="point.lat" [(lng)]="point.lon">
          <yaga-popup (minWidth)="250" (maxWidth)="300" [(opened)]="point.opened">
