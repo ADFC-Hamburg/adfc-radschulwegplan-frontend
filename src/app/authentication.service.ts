@@ -1,8 +1,8 @@
+
+import {map,  tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
@@ -15,8 +15,8 @@ export class AuthenticationService {
         //let basepath='http://localhost:8000';
         let basepath='https://radschulwegplan.hamburg.adfc.de/backend/feature_json_login';
         
-        return this.http.post<any>(basepath+'/api/v1/login', { 'username': username, 'password': password })
-            .map(username => {
+        return this.http.post<any>(basepath+'/api/v1/login', { 'username': username, 'password': password }).pipe(
+            map(username => {
                 // login successful if there's a jwt token in the response
                 if (username) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -24,7 +24,7 @@ export class AuthenticationService {
                 }
 
                 return username;
-            });
+            }));
         
     }
 

@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { DangerPoint } from '../shared/danger-point';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from "rxjs/Rx"
+import { BehaviorSubject ,  Observable } from 'rxjs';
 import {List} from 'immutable';
 import { MapPositionService } from '../main-map/map-position.service';
 

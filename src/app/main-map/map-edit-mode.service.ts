@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { EditMode } from '../shared/edit-mode-enum';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs/Subject';
+import { Observable ,  Subject } from 'rxjs';
  
 @Injectable()
 export class MapEditModeService implements OnInit { 

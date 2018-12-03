@@ -10,7 +10,7 @@ import 'leaflet.pm/js/L.PM';
 import { GLYPH_MARKER_ICON } from './consts';
 
 import { EditMode } from './shared/edit-mode-enum';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Directive({
 //    providers: [ MapProvider ],
