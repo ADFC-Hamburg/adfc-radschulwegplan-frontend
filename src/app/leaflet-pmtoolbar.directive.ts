@@ -6,7 +6,7 @@ import { MapEditModeService } from './main-map/map-edit-mode.service';
 //console.log(LeafletEvent);
 //import { Map } from 'leaflet';
 import * as L from 'leaflet';
-import 'leaflet.pm/js/L.PM';
+import 'leaflet.pm';
 import { GLYPH_MARKER_ICON } from './consts';
 
 import { EditMode } from './shared/edit-mode-enum';
@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
     selector: 'leaflet-pm-toolbar'
 })
 export class LeafletPmtoolbarDirective  {
-    
+
 
     private pm: any;
     private editModeSubscription: Subscription;
@@ -85,6 +85,25 @@ export class LeafletPmtoolbarDirective  {
         // set new Mode
         switch (+this.editMode) {
             case EditMode.MARKER:
+                debugger;
+                var that= this.pm.Draw.Marker;
+                this.pm.Draw.Marker._createMarker = function (e) {
+                   if(!e.latlng) {
+                        return;
+                   }
+
+                   if(!that._hintMarker._snapped) {
+                         that._hintMarker.setLatLng(e.latlng);
+                   }
+
+                   // get coordinate for new vertex by hintMarker (cursor marker
+                   const latlng = that._hintMarker.getLatLng();
+
+                   that._map.fire('pm:marker:create',latlng);
+
+                   that._cleanupSnapping();
+
+                }
                 this.pm.enableDraw('Marker');
                 break;
             case EditMode.LINE:

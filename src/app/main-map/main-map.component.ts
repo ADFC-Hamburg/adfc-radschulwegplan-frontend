@@ -7,7 +7,7 @@ import { EditMode } from '../shared/edit-mode-enum';
 import { MapPositionService } from './map-position.service';
 import { environment } from '../../environments/environment';
 import 'leaflet';
-import 'leaflet.pm/js/L.PM';
+import 'leaflet.pm';
 
 
 @Component({
@@ -15,8 +15,7 @@ import 'leaflet.pm/js/L.PM';
     templateUrl: './main-map.component.html',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./main-map.component.css',
-                '../../../src/leaflet.pm/css/controls.css',
-                '../../../src/leaflet.pm/css/layers.css',
+                '../../../node_modules/leaflet.pm/dist/leaflet.pm.css',
                ]
 })
 
@@ -28,7 +27,7 @@ export class MainMapComponent implements OnInit {
     zoom: number
 
     constructor(private dangerPointService:DangerPointService, public posService: MapPositionService) { }
-    
+
     ngOnInit() {
         this.lat = 53.55;
         this.lon = 9.99;
