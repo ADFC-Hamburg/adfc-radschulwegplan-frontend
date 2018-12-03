@@ -20,13 +20,13 @@ import 'leaflet.pm';
 })
 
 export class MainMapComponent implements OnInit {
-    apiKey: string
+    apiKey: string;
 
-    lat: number
-    lon: number
-    zoom: number
+    lat: number;
+    lon: number;
+    zoom: number;
 
-    constructor(private dangerPointService:DangerPointService, public posService: MapPositionService) { }
+    constructor(private dangerPointService: DangerPointService, public posService: MapPositionService) { }
 
     ngOnInit() {
         this.lat = 53.55;

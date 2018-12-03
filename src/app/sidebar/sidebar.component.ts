@@ -30,7 +30,7 @@ export class SidebarComponent {
     }
 
     isMode(val: EditMode) {
-        return  (this.mapEditModeService.getMode()==val);
+        return  (this.mapEditModeService.getMode() === val);
     }
 
     logout() {

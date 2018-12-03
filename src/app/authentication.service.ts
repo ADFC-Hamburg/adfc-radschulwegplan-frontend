@@ -11,21 +11,21 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
 
-        //let basepath='https://radschulwegplan.hamburg.adfc.de/backend/master/';
-        //let basepath='http://localhost:8000';
-        let basepath='https://radschulwegplan.hamburg.adfc.de/backend/feature_json_login';
-        
-        return this.http.post<any>(basepath+'/api/v1/login', { 'username': username, 'password': password }).pipe(
-            map(username => {
+        // let basepath='https://radschulwegplan.hamburg.adfc.de/backend/master/';
+        // let basepath='http://localhost:8000';
+        const basepath = 'https://radschulwegplan.hamburg.adfc.de/backend/feature_json_login';
+
+        return this.http.post<any>(basepath + '/api/v1/login', { 'username': username, 'password': password }).pipe(
+            map(usernameParm => {
                 // login successful if there's a jwt token in the response
-                if (username) {
+                if (usernameParm) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', username);
+                    localStorage.setItem('currentUser', usernameParm);
                 }
 
-                return username;
+                return usernameParm;
             }));
-        
+
     }
 
     logout() {
