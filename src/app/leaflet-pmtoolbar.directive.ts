@@ -56,6 +56,11 @@ export class LeafletPmtoolbarDirective  {
             self.editModeService.setMode(EditMode.NORMAL);
             self.pm.disableDraw();
         });
+        mapProvider.ref.on('pm:create', function (e: any) {
+            console.log('CREATE', e, arguments);
+            self.editModeService.setMode(EditMode.NORMAL);
+            self.pm.disableDraw();
+        });
         this.editMode = EditMode.NORMAL;
     }
 
@@ -99,7 +104,6 @@ export class LeafletPmtoolbarDirective  {
                    const latlng = that._hintMarker.getLatLng();
 
                    that._map.fire('pm:marker:create', latlng);
-
                    that._cleanupSnapping();
 
                 };
