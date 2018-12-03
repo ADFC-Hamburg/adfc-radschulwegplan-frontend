@@ -16,5 +16,5 @@ before_script:
 script:
  - ng test --watch false -cc
  - npm run e2e
- - ng build -bh "https://radschulwegplan.hamburg.adfc.de/frontend/$TRAVIS_BRANCH"
+ - ng build --base-href "https://radschulwegplan.hamburg.adfc.de/frontend/$TRAVIS_BRANCH"
  - bash <(curl -s https://codecov.io/bash)
