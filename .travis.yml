@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "7"
+  - "10"
 sudo: true
 dist: trusty
 
@@ -13,7 +13,7 @@ before_script:
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
 
-script: 
+script:
  - ng test --watch false -cc
  - npm run e2e
  - ng build -bh "https://radschulwegplan.hamburg.adfc.de/frontend/$TRAVIS_BRANCH"
